@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #ffb6c1;
+    color: #000080;
+    overflow: hidden;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #00ffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    margin: 10px 0;
+    color: #800000;
+    font-size: 2.5em;
+    text-shadow: 2px 2px #ffff00;
+}
+
+.snowflakes {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.flake {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall 5s linear infinite;
+}
+
+.flake:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 4s; }
+.flake:nth-child(2) { left: 30%; animation-delay: 1s; animation-duration: 5s; }
+.flake:nth-child(3) { left: 50%; animation-delay: 2s; animation-duration: 6s; }
+.flake:nth-child(4) { left: 70%; animation-delay: 1.5s; animation-duration: 4.5s; }
+.flake:nth-child(5) { left: 90%; animation-delay: 0.5s; animation-duration: 5.5s; }
+.flake:nth-child(6) { left: 80%; animation-delay: 2.5s; animation-duration: 6.5s; }
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.wish-box {
+    width: 50%; 
+    max-width: 300px; 
+    margin: 20px auto; 
+    padding: 10px; 
+    background-color: #f8f9fa; 
+    border: 2px solid #ddd; 
+    border-radius: 10px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+.xo1 {
+    width: 100px;
+    height: 60px;
+    object-fit: cover; 
+}
+
+textarea#wish-input {
+    width: 100%; 
+    height: 10px; 
+    font-size: 12px;
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    resize: none; 
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button#send-btn {
+    display: block; 
+    margin: 10px auto; 
+    padding: 8px 15px; 
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#send-btn:hover {
+    background-color: #0056b3;}
+
+.disclaimer {
+    font-size: 12px; 
+    color: #666; 
+    text-align: center;
+}
+
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+#send-btn:active ~ #sent-message {
+    display: block;
+    animation: fade-in-out 3s;
+}
